@@ -5,16 +5,29 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.api.methods.send.*;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 
+import java.io.IOException;
+
 public class JeopardyBot extends TelegramLongPollingBot {
     @Override
     public void onUpdateReceived(Update update) {
         if (update.hasMessage() && update.getMessage().hasText()) {
-            SendMessage message = new SendMessage() // Create a SendMessage object with mandatory fields
-                    .setChatId(update.getMessage().getChatId())
-                    .setText(update.getMessage().getText());
+            System.out.println("Mensaje entrante: " + update.getMessage().getText());
             try {
-                sendMessage(message); // Call method to send the message
-            } catch (TelegramApiException e) {
+                SendMessage message = new SendMessage();
+                if(update.getMessage().getText().equals("/start")) {
+                    message = new SendMessage()
+                            .setChatId(update.getMessage().getChatId())
+                            .setText("Introduce un concepto para generar una respuesta de Jeopardy.");
+                }
+                else {
+                    message = new SendMessage()
+                            .setChatId(update.getMessage().getChatId())
+                            .setText(SearchWikiIndex.startSearchApp(update.getMessage().getText()));
+                }
+                sendMessage(message);
+                System.out.println("Mensaje saliente: " + message.getText());
+            }
+            catch (TelegramApiException | IOException  e){
                 e.printStackTrace();
             }
         }

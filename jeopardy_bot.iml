@@ -12,5 +12,10 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="telegrambots-3.0.1-jar-with-dependencies" level="project" />
+    <orderEntry type="library" name="commons-cli-1.1" level="project" />
+    <orderEntry type="library" name="lucene-analyzers-common-4.8.1" level="project" />
+    <orderEntry type="library" name="lucene-core-4.8.1" level="project" />
+    <orderEntry type="library" name="lucene-queryparser-4.8.1" level="project" />
+    <orderEntry type="library" name="nxparser-1.2.3" level="project" />
   </component>
 </module>
