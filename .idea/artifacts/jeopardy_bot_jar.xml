@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="jeopardy_bot:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/jeopardy_bot_jar</output-path>
-    <root id="archive" name="jeopardy_bot.jar">
-      <element id="module-output" name="jeopardy_bot" />
-      <element id="extracted-dir" path="$USER_HOME$/Downloads/telegrambots-3.0.1-jar-with-dependencies.jar" path-in-jar="/" />
-    </root>
-  </artifact>
-</component>

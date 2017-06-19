@@ -60,14 +60,8 @@ public class SearchWikiIndex {
                     String rank = doc.get(FieldNames.RANK.name());
                     System.out.println(rank+"\t"+"\t"+url+"\t"+title+"\t"+abst);
                     abst = abst.replaceAll("\\s*\\([^\\)]*\\)\\s*", "");
-                    String[] sentences = abst.split("\\. ");
-                    String sent = sentences[0];
-                    for(int j = 0; j < sentences.length; j++) {
-                        if (sentences[j].length() > 100){
-                            sent = sentences[j];
-                            break;
-                        }
-                    }
+                    SummaryTool stool = new SummaryTool();
+                    String sent = stool.bestSentence(abst, stool.sentencesRank(abst));
                     sent = sent.replaceAll("[0-9]+px", "");
                     sent = sent.replaceAll("(?i)"+title, "***");
                     sent = sent.replaceAll("(?i)"+line, "***");
